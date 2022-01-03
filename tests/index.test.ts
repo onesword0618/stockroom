@@ -12,3 +12,14 @@ describe('GET / Explain about the API.', () => {
     expect(JSON.stringify(response.body.message)).toBe('"Welcome Imaginary store Inventory API."');
   });
 });
+
+describe('GET /store the API.', () => {
+  afterAll(async () => {
+    kill(process.pid);
+  });
+
+  test('response message : Inventory lists.', async () => {
+    const response = await request.agent(app).get('/store');
+    expect(JSON.stringify(response.body)).toEqual('[{"id":1,"product":"orange"},{"id":2,"product":"apple"}]');
+  });
+});
