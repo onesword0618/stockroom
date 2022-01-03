@@ -6,4 +6,5 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use('/', index);
+app.use('/store', index);
 export default app;

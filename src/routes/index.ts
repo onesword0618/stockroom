@@ -15,4 +15,11 @@ router.get('/', async (request: express.Request, response: express.Response): Pr
   response.json({ message: 'Welcome Imaginary store Inventory API.' });
 });
 
+router.get('/store', async (request: express.Request, response: express.Response): Promise<void> => {
+  response.json([
+    { id: 1, product: 'orange' },
+    { id: 2, product: 'apple' },
+  ]);
+});
+
 export default router;
