@@ -22,4 +22,17 @@ router.get('/store', async (request: express.Request, response: express.Response
   ]);
 });
 
+// TODO FIX
+router.get('/products/:id', async (request: express.Request, response: express.Response): Promise<void> => {
+  const samples = [`orange`, `apple`];
+  let result;
+  if (Number.parseInt(request.params.id) > -1) {
+    result = samples[Number.parseInt(request.params.id)];
+    response.json(result);
+  } else {
+    result = `No Contents.`;
+    response.json(result);
+  }
+});
+
 export default router;

@@ -7,4 +7,5 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use('/', index);
 app.use('/store', index);
+app.use('/products/:id', index);
 export default app;
