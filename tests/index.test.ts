@@ -18,8 +18,24 @@ describe('GET /store the API.', () => {
     kill(process.pid);
   });
 
-  test('response message : Inventory lists.', async () => {
+  test('response : Inventory lists.', async () => {
     const response = await request.agent(app).get('/store');
     expect(JSON.stringify(response.body)).toEqual('[{"id":1,"product":"orange"},{"id":2,"product":"apple"}]');
+  });
+});
+
+describe('GET /products/:id the API.', () => {
+  afterAll(async () => {
+    kill(process.pid);
+  });
+
+  test('response : Inventory Product id.', async () => {
+    const response = await request.agent(app).get('/products/1');
+    expect(JSON.stringify(response.body)).toEqual('"apple"');
+  });
+
+  test('response : mistake Inventory Product id.', async () => {
+    const response = await request.agent(app).get('/products/-1');
+    expect(JSON.stringify(response.body)).toEqual('"No Contents."');
   });
 });
