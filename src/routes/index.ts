@@ -12,18 +12,25 @@ app.use(express.urlencoded({ extended: false }));
 
 const router = express.Router();
 router.get('/', async (request: express.Request, response: express.Response): Promise<void> => {
-  response.json({ message: 'Welcome Imaginary store Inventory API.' });
+  response.json({
+    description: 'Welcome Imaginary store Inventory API.',
+    infomation: {
+      title: 'Imaginary store Inventory API',
+      version: '1.0',
+    },
+  });
 });
 
-router.get('/store', async (request: express.Request, response: express.Response): Promise<void> => {
-  response.json([
-    { id: 1, product: 'orange' },
-    { id: 2, product: 'apple' },
-  ]);
+router.get('/v1/stocks/:id', async (request: express.Request, response: express.Response): Promise<void> => {
+  if (Number.parseInt(request.params.id) === 1) {
+    response.json({ id: 1, type: 'supermarket' });
+  } else {
+    response.json({});
+  }
 });
 
 // TODO FIX
-router.get('/products/:id', async (request: express.Request, response: express.Response): Promise<void> => {
+router.get('/v1/products/:id', async (request: express.Request, response: express.Response): Promise<void> => {
   const samples = [`orange`, `apple`];
   let result;
   if (Number.parseInt(request.params.id) > -1) {

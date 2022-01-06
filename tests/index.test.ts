@@ -7,35 +7,50 @@ describe('GET / Explain about the API.', () => {
     kill(process.pid);
   });
 
-  test('response message : Welcome Imaginary store Inventory API.', async () => {
+  test('response description : Welcome Imaginary store Inventory API.', async () => {
     const response = await request.agent(app).get('/');
-    expect(JSON.stringify(response.body.message)).toBe('"Welcome Imaginary store Inventory API."');
+    expect(JSON.stringify(response.body.description)).toBe('"Welcome Imaginary store Inventory API."');
+  });
+
+  test('response title : Imaginary store Inventory API', async () => {
+    const response = await request.agent(app).get('/');
+    expect(JSON.stringify(response.body.infomation.title)).toBe('"Imaginary store Inventory API"');
+  });
+
+  test('response version : Imaginary store Inventory API', async () => {
+    const response = await request.agent(app).get('/');
+    expect(JSON.stringify(response.body.infomation.version)).toBe('"1.0"');
   });
 });
 
-describe('GET /store the API.', () => {
+describe('GET /v1/stocks/:id : Derivation stock Information.', () => {
   afterAll(async () => {
     kill(process.pid);
   });
 
-  test('response : Inventory lists.', async () => {
-    const response = await request.agent(app).get('/store');
-    expect(JSON.stringify(response.body)).toEqual('[{"id":1,"product":"orange"},{"id":2,"product":"apple"}]');
+  test('response : stock id.', async () => {
+    const response = await request.agent(app).get('/v1/stocks/1');
+    expect(JSON.stringify(response.body.id)).toEqual('1');
+  });
+
+  test('response : stock type.', async () => {
+    const response = await request.agent(app).get('/v1/stocks/1');
+    expect(JSON.stringify(response.body.type)).toEqual('"supermarket"');
   });
 });
 
-describe('GET /products/:id the API.', () => {
+describe('GET /v1/products/:id the API.', () => {
   afterAll(async () => {
     kill(process.pid);
   });
 
-  test('response : Inventory Product id.', async () => {
-    const response = await request.agent(app).get('/products/1');
+  test('response :  product id.', async () => {
+    const response = await request.agent(app).get('/v1/products/1');
     expect(JSON.stringify(response.body)).toEqual('"apple"');
   });
 
   test('response : mistake Inventory Product id.', async () => {
-    const response = await request.agent(app).get('/products/-1');
+    const response = await request.agent(app).get('/v1/products/-1');
     expect(JSON.stringify(response.body)).toEqual('"No Contents."');
   });
 });
