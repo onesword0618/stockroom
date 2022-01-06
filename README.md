@@ -1,6 +1,6 @@
 # stockroom
 
-<img src="./docs/assets/icon.png" width="200" height="140" alt="icon">
+<img src="./docs/assets/icon.png" width="160" height="160" alt="icon">
 
 ## Description
 
@@ -39,6 +39,7 @@ A system to manage inventory in an imaginary store.
 
 <p>
 
+[![Babel](https://img.shields.io/badge/Babel-333333?logo=babel&logoColor=F9DC3E)](https://babeljs.io/)
 [![Webpack](https://img.shields.io/badge/Webpack-ffffff?logo=webpack&logoColor=8DD6F9)](https://webpack.js.org/)
 
 </p>
