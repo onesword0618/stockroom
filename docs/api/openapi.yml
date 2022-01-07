@@ -1,0 +1,11 @@
+# https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md
+openapi: 3.0.3
+info:
+  title: Imaginary store Inventory API.
+  version: 1.0.0
+paths:
+  /:
+    get:
+      responses:
+        '200':
+          description: A JSON array of Order model
