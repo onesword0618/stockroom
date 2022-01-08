@@ -1,11 +1,40 @@
 # https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md
 openapi: 3.0.3
 info:
-  title: Imaginary store Inventory API.
+  title: Imaginary Store Inventory API.
   version: 1.0.0
-paths:
-  /:
-    get:
-      responses:
-        '200':
-          description: A JSON array of Order model
+  description: Provide information on inventory management in virtual stores.
+  contact:
+    email: ao.akua.leo@gmail.com
+    name: Kenichi Inoue
+    url: 'https://onesword0618.jp/'
+  license:
+    name: MIT License
+    url: 'https://github.com/onesword0618/stockroom/blob/main/LICENSE'
+servers:
+  - url: 'http://localhost:{port}/{basePath}'
+    variables:
+      port:
+        default: '8000'
+        enum:
+          - '8102'
+          - '8103'
+        description: Port Number
+      basePath:
+        default: v1
+        enum:
+          - v0
+          - v2
+        description: Version Control
+    description: The Development API server
+components:
+  schemas:
+    GeneralError:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+paths: {}
