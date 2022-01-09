@@ -29,12 +29,45 @@ servers:
     description: The Development API server
 components:
   schemas:
-    GeneralError:
+    Stock:
       type: object
+      required:
+        - id
       properties:
-        code:
+        id:
           type: integer
-          format: int32
-        message:
+          format: int64
+        name:
           type: string
-paths: {}
+        address:
+          type: string
+paths:
+  /stocks/{id}:
+    get:
+      tags:
+        - stocks
+      summary: Get stocks by ID.
+      description: Returns a single Stock model
+      parameters:
+        - name: id
+          in: path
+          description: stock id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: A single Stock model
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: '#/components/schemas/Stock'
+                example:
+                  - id : 1
+                    name: First Stock Place
+                    address: 1st Area
+
+
+
