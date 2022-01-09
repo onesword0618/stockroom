@@ -1,0 +1,8 @@
+# git
+.git
+# node.js
+node_modules/
+npm-debug
+dist/
+.DS_Store
+.tmp
