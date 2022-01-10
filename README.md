@@ -46,6 +46,12 @@ A system to manage inventory in an imaginary store.
 
 <p>
 
+[![MySQL](https://img.shields.io/badge/mysql-ffffff?logo=mysql&logoColor=4479A1)](https://dev.mysql.com/)
+
+</p>
+
+<p>
+
 [![Express](https://img.shields.io/badge/express-ffffff?logo=express&logoColor=000000)](https://expressjs.com/)
 [![jest](https://jestjs.io/img/jest-badge.svg)](https://github.com/facebook/jest)
 
@@ -58,6 +64,7 @@ A system to manage inventory in an imaginary store.
 [![EditorConfig](https://img.shields.io/badge/EditorConfig-333333?logo=editorconfig&logoColor=FEFEFE)](https://editorconfig.org/)
 [![NPM](https://img.shields.io/badge/npm-333333?logo=npm&logoColor=CB3837)](https://docs.npmjs.com/about-npm)
 [![GNU Bash](https://img.shields.io/badge/GNUBash-ffffff?logo=gnubash&logoColor=4EAA25)](https://www.gnu.org/software/bash/)
+[![Docker](https://img.shields.io/badge/Docker-ffffff?logo=docker&logoColor=2496ED)](https://docs.docker.com/)
 
 </p>
 
@@ -65,7 +72,14 @@ A system to manage inventory in an imaginary store.
 
 Sorry, Not NPM Package.
 
-```json
+-- development
+
+```bash
+  # swagger / plantuml / mysql
+  docker-compose up -d
+```
+
+```bash
   npm run start
 ```
 
