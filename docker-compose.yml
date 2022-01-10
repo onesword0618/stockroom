@@ -22,3 +22,25 @@ services:
       - ./docs/api/openapi.yml:/openapi.yml
     environment:
       SWAGGER_JSON: ./openapi.yml
+  # database
+  db:
+    image: mysql:8.0
+    container_name: "mysql"
+    ports:
+      - ${DATABASE}:3306
+    volumes:
+      - db-datadir:/var/lib/mysql/
+      - ./mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+      - ./logs:/var/log/mysql/
+      - ./mysql/setUp:/docker-entrypoint-initdb.d
+    environment:
+      - MYSQL_DATABASE=${DB_NAME}
+      - MYSQL_USER=${DB_USER}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+      - TZ=${TZ}
+    security_opt:
+      - seccomp:unconfined
+    command: bash -c "chown -R mysql:mysql /var/log/mysql && exec /entrypoint.sh mysqld"
+volumes:
+  db-datadir:
