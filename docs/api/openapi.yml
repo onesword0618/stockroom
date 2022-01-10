@@ -41,6 +41,29 @@ components:
           type: string
         address:
           type: string
+    GeneralError:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+  responses:
+    NotFound:
+      description: Entity not found.
+    IllegalInput:
+      description: Illegal input for operation.
+    GeneralError:
+      description: General Error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/GeneralError'
+tags: [{
+    name: stock controller,
+    description: stock resource controller
+  }]
 paths:
   /stocks/{id}:
     get:
@@ -55,6 +78,7 @@ paths:
           required: true
           schema:
             type: integer
+      # Need 305, 401, 403
       responses:
         '200':
           description: A single Stock model
@@ -68,6 +92,26 @@ paths:
                   - id : 1
                     name: First Stock Place
                     address: 1st Area
-
-
+        '401':
+          description: The syntax of the request is different.
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: '#/components/responses/IllegalInput'
+                example:
+                  - code : 401
+                    message: The syntax of the request is different.
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: '#/components/responses/NotFound'
+                example:
+                  - code : 404
+                    message: The Stock Not Found.
 
