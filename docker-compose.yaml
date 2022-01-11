@@ -19,9 +19,9 @@ services:
     ports:
       - ${UI}:8080
     volumes:
-      - ./docs/api/openapi.yml:/openapi.yml
+      - ./docs/api/openapi.yaml:/openapi.yaml
     environment:
-      SWAGGER_JSON: ./openapi.yml
+      SWAGGER_JSON: ./openapi.yaml
   # database
   db:
     image: mysql:8.0
