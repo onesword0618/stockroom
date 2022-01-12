@@ -23,21 +23,21 @@ describe('GET / Explain about the API.', () => {
   });
 });
 
-describe('GET /v1/stocks/:id : Derivation stock Information.', () => {
-  afterAll(async () => {
-    kill(process.pid);
-  });
+// describe('GET /v1/stocks/:id : Derivation stock Information.', () => {
+//   afterAll(async () => {
+//     kill(process.pid);
+//   });
 
-  test('response : stock id.', async () => {
-    const response = await request.agent(app).get('/v1/stocks/1');
-    expect(JSON.stringify(response.body.id)).toEqual('1');
-  });
+//   test('response : stock id.', async () => {
+//     const response = await request.agent(app).get('/v1/stocks/1');
+//     expect(JSON.stringify(response.body.id)).toEqual('1');
+//   });
 
-  test('response : stock type.', async () => {
-    const response = await request.agent(app).get('/v1/stocks/1');
-    expect(JSON.stringify(response.body.type)).toEqual('"supermarket"');
-  });
-});
+//   test('response : stock type.', async () => {
+//     const response = await request.agent(app).get('/v1/stocks/1');
+//     expect(JSON.stringify(response.body.type)).toEqual('"supermarket"');
+//   });
+// });
 
 describe('GET /v1/products/:id the API.', () => {
   afterAll(async () => {
