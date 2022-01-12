@@ -76,3 +76,10 @@
 [bodyparser-is-deprecated-express-4](https://stackoverflow.com/questions/24330014/bodyparser-is-deprecated-express-4)
 [eslint-config-prettier](https://github.com/prettier/eslint-config-prettier/blob/main/CHANGELOG.md#version-800-2021-02-21)
 [eslint-plugin-prettier](https://github.com/prettier/eslint-plugin-prettier#readme)
+
+### Docker
+
+docker-compose up -d
+docker-compose down
+docker volume ls
+docker volume rm XXX
