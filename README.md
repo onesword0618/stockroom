@@ -60,6 +60,7 @@ A system to manage inventory in an imaginary store.
 <p>
 
 [![Swagger](https://img.shields.io/badge/swagger-ffffff?logo=swagger&logoColor=85EA2D)](https://swagger.io/)
+[![ts-node](https://img.shields.io/badge/tsnode-ffffff?logo=tsnode&logoColor=3178C6)](https://typestrong.org/ts-node/)
 [![Nodemon](https://img.shields.io/badge/nodemon-ffffff?logo=nodemon&logoColor=76D04B)](https://nodemon.io/)
 [![EditorConfig](https://img.shields.io/badge/EditorConfig-333333?logo=editorconfig&logoColor=FEFEFE)](https://editorconfig.org/)
 [![NPM](https://img.shields.io/badge/npm-333333?logo=npm&logoColor=CB3837)](https://docs.npmjs.com/about-npm)
