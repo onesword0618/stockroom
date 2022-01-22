@@ -5,9 +5,12 @@
  * Kenichi Inoue.
  */
 import app from './app';
+// TODO Add Logger.
 
-const PORT = process.env.PORT || 8000;
-
+// Start the API Server.
+const PORT = Number(process.env.PORT || 8000);
 app.listen(PORT, (): void => {
-  console.log(`Stockroom's API Server : ${PORT}`);
+  // TODO FIX change Logger.
+  // eslint-disable-next-line no-console
+  console.log(`[App]: Listining on port ${PORT}`);
 });

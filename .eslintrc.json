@@ -2,13 +2,15 @@
     "root": true,
     "env": {
         "es2021": true,
-        "node": true
+        "node": true,
+        "jest/globals": true
     },
     "extends": [
-      "airbnb-base",
       "eslint:recommended",
       "plugin:@typescript-eslint/recommended",
       "plugin:@typescript-eslint/recommended-requiring-type-checking",
+      "plugin:jest/recommended",
+      "airbnb-base",
       "prettier"
     ],
     "parser": "@typescript-eslint/parser",
@@ -18,11 +20,15 @@
         "project": ["./tsconfig.json"]
     },
     "plugins": [
-        "@typescript-eslint"
+        "@typescript-eslint",
+        "jest",
+        "prettier",
+        "import"
     ],
     "rules": {
       "@typescript-eslint/no-misused-promises": "off",
       "@typescript-eslint/require-await": "off",
+      "import/prefer-default-export": "off",
       "import/no-unresolved": "error",
       "import/extensions": [
         "error",
@@ -30,5 +36,21 @@
           "ts": "never"
         }
       ],
-    }
+      "jest/no-disabled-tests": "warn",
+      "jest/no-focused-tests": "error",
+      "jest/no-identical-title": "error",
+      "jest/prefer-to-have-length": "warn",
+      "jest/valid-expect": "error"
+    },
+    "settings": {
+      "import/parsers": {
+        "@typescript-eslint/parser": [".ts", ".tsx"]
+      },
+      "import/resolver": {
+        "typescript": {
+          "alwaysTryTypes": true
+        }
+      }
+    },
+    "ignorePatterns": "node_modules/"
 }
